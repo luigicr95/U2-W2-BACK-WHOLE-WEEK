@@ -1,0 +1,61 @@
+﻿@model IEnumerable<U2_W2_BACK_WHOLE_WEEK.Models.Spedizione>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Destinatario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Indirizzo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Citta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Costo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSpedizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataConsegna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mittente)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destinatario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Indirizzo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Citta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Costo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSpedizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataConsegna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mittente.Nome)
+            @Html.DisplayFor(modelItem => item.Mittente.Cognome)
+        </td>
+    </tr>
+}
+
+</table>
