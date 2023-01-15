@@ -1,0 +1,40 @@
+﻿@model IEnumerable<U2_W2_BACK_WHOLE_WEEK.Models.Aggiornamento>
+
+<p>
+    @Html.ActionLink("Create New", "AddAggiornamenti")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataAggiornamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luogo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAggiornamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luogo)
+        </td>
+    </tr>
+}
+
+</table>

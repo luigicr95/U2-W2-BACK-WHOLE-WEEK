@@ -12,6 +12,8 @@ namespace U2_W2_BACK_WHOLE_WEEK.Models
         public string Descrizione { get; set; }
         public string Stato { get; set; }
         public string Luogo { get; set; }
-        public Spedizione Spedizione { get; set; }
+        public int IDSpedizione { get; set; }
+
+        public static List<Aggiornamento> listaAggiornamenti { get; set; } = new List<Aggiornamento>();
     }
 }

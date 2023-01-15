@@ -9,6 +9,7 @@ using U2_W2_BACK_WHOLE_WEEK.Models;
 
 namespace U2_W2_BACK_WHOLE_WEEK.Controllers
 {
+    [Authorize]
     public class SpedizioniController : Controller
     {
         // GET: Spedizioni
@@ -102,6 +103,48 @@ namespace U2_W2_BACK_WHOLE_WEEK.Controllers
             con.Close();
 
             return PartialView(Spedizione.listaSpedizioni);
+        }
+
+        public ActionResult _Updates(int id)
+        {
+            Aggiornamento.listaAggiornamenti.Clear();
+            SqlConnection con = new SqlConnection();
+            try
+            {
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["ConToSpedizioni"].ToString();
+                con.Open();
+
+                SqlCommand command = new SqlCommand();
+                command.Parameters.AddWithValue("@idSpedizione", id);
+                command.CommandText = "SELECT * FROM Aggiornamenti WHERE IDSpedizione = @idSpedizione";
+                command.Connection = con;
+
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                   Aggiornamento update = new Aggiornamento();
+                    update.ID = Convert.ToInt32(reader["IDSpedizione"]);
+                    update.DataAggiornamento = Convert.ToDateTime(reader["DataAggiornamento"]);
+                    update.Descrizione = reader["Descrizione"].ToString();
+                    update.Stato = reader["Stato"].ToString();
+                    update.Luogo = reader["Luogo"].ToString();
+
+                    
+
+
+                    Aggiornamento.listaAggiornamenti.Add(update);
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            con.Close();
+
+            return PartialView(Aggiornamento.listaAggiornamenti);
         }
     }
     

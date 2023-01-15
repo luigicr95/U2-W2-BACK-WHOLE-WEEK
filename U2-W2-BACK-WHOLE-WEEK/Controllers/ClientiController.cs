@@ -9,6 +9,7 @@ using U2_W2_BACK_WHOLE_WEEK.Models;
 
 namespace U2_W2_BACK_WHOLE_WEEK.Controllers
 {
+    [Authorize]
     public class ClientiController : Controller
     {
         // GET: Cliente
